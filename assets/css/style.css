@@ -3,12 +3,6 @@
     background-position: center;
     object-fit: cover;
 }
-#uploaded-display {
-    background-image: url(https://picsum.photos/700);
-    height: auto;
-    max-width: 700px;
-    object-fit: cover;
-}
 
 .playlist-card {
     margin-bottom: 30px;
