@@ -13,15 +13,19 @@ $(document).on('click', '#playlist-popup-collapse', collapsePlaylist);
 --------------------------*/ 
 function expandPlaylist() {
     $('#playlist-popup').append(`
-    <div id="playlist-popup-collapse" class="playlist-tabs">v Collapse v</div>
+        <div id="playlist-popup-collapse" class="playlist-tabs">
+            <i class="far fa-arrow-alt-circle-down"></i>
+        </div>
     `);
 
-    $('#playlist-popup').css('right', '-1px');
+    $('#playlist-popup').find('table')
+        .css('right', '0px');
 
 }
 
 function collapsePlaylist() {
     $(this).remove();
 
-    $('#playlist-popup').css('right', '-1000px');
+    $('#playlist-popup').find('table')
+        .css('right', '-100%');
 }

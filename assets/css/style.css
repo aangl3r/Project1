@@ -1,7 +1,11 @@
 body {
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    overflow-x: hidden;
 }
+
+/*--------------------------  
+    HEAD BANNER SECTION
+-------------------------- */
 #header {
     background-image: url(../images/concert.jpg);
     background-position: center;
@@ -9,18 +13,43 @@ body {
     height: 500px;
     object-fit: cover;
 }
+#header h1 {
+    font-family: 'Teko', sans-serif;
+    font-size: 4.5rem;
+    text-shadow: 0 0 10px #000;
+}
+#header .lead {
+    text-shadow: 0 0 10px #000;
+}
+/*----- Custom Img Uploads -----*/
+.upload-custom-wrapper {
+    width: 50%;
+}
+.upload-custom {
+    text-align: left;
+}
 .upload-img-labels,
 .custom-file-label::after {
     background-color: #120950;
     border: none;
     color: #fff;
 }
+.custom-file-input:hover {
+    box-shadow: inset 0 0 10px 2px #4C409C;
+}
+.custom-file-label {
+    border: 1px solid #120950;
+    border-radius: 0 .25rem .25rem 0 !important;
+}
 
-.playlist-card {
+/*--------------------------  
+    LIBRARY of MOODS 
+-------------------------- */
+.mood-card {
     margin-bottom: 30px;
     position: relative;
 }
-.playlist-mood {
+.mood-name {
     background-color: #120950;
     color: #fff;
     font-size: 1.25rem;
@@ -34,29 +63,62 @@ body {
     text-align: center;
 }
 
+/*--------------------------  
+    PLAYLIST POPUP 
+-------------------------- */
+#playlist-popup {
+    position: fixed;
+        bottom: 0px;
+        right: 0;
+    width: 75%;
+    z-index: 9999;
+}
 .playlist-tabs {
     background-color: #120950;
     border-radius: 5px 5px 0 0;
     color: #fff;
     cursor: pointer;
-    height: 50px;
+    height: 40px;
+    position: absolute;
+        bottom: 50px;
+        right: -20px;
     text-align: center;
     transform: rotate(-90deg);
-    width: 120px;
-    padding-top: 10px;
-    position: absolute;
-        bottom: 70px;
-        right: -40px;
+    width: 80px;
+    padding-top: 8px;
 }
-#playlist-popup {
+.playlist-tabs:hover {
+    background-color: #1f1081;
+}
+#playlist-popup table {
+    border-radius: 15px 0 0 15px;
     position: absolute;
-        bottom: 0px;
-        right: -1000px;
-    width: 75%;
+        bottom: 0;
+        right: -100%;
+}
+#playlist-popup table th {
+    border-top: none;
 }
 
+/*--------------------------  
+    MEDIA QUERIES
+-------------------------- */
 @media only screen and (max-width: 600px) {
+    #header h1 {
+        font-size: 3.25rem
+    }
+    .upload-custom-wrapper {
+        width: 100%;
+    }
     #playlist-popup {
         width: 100%;
+    }
+    #playlist-popup table {
+        border-radius: 0;
+    }
+}
+@media only screen and (max-width: 400px) {
+    #playlist-popup table {
+        font-size: .8rem;
     }
 }
