@@ -1,4 +1,4 @@
-var redirect_uri = window.location.href + "inner.html/";
+var redirect_uri = window.location.href + "inner.html";
 
 var clientID = "05124bd3d3bb4dc2b9eaa0a5303bde98";
 
