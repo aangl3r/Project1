@@ -11,9 +11,8 @@
 
 <body>
 
-   <h1>Detect Faces:</h1>
-   Enter the URL to an image that includes a face or faces, then click
-   the <strong>Analyze face</strong> button.<br><br>
+   
+
    Image to analyze: <input type="text" name="inputImage" id="inputImage"
       value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg" />
    <button onclick="processImage()">Analyze face</button><br><br>
@@ -31,6 +30,8 @@
    
    <script type="text/javascript">
       function processImage() {
+         var imgURL = $('.custom-file-input').val();
+         $('.custom-file-label').text(imgURL);
          // Replace <Subscription Key> with your valid subscription key.
          var subscriptionKey = "30e9de2d176e4777a961d0d067ec593e";
          // NOTE: You must use the same region in your REST call as you used to
