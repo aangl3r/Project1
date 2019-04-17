@@ -15,6 +15,7 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Project1</title>
 </head>
@@ -28,16 +29,14 @@
         <hr class="my-4">
         <div class="input-group mx-auto mb-3 upload-custom-wrapper">
             <div class="input-group-prepend">
-                <span class="input-group-text upload-img-labels">Upload Here:
+                <span class="input-group-text upload-img-labels">Paste link here:
                 </span>
             </div>
 
             <!-- Upload custom selfie image -->
             <div class="custom-file upload-custom">
-                <input type="file" class="custom-file-input"
-                    id="inputGroupFile01">
-                <label class="custom-file-label" for="inputGroupFile01">Choose
-                    file</label>
+                <input type="text" id="file-input">
+
             </div>
             <button class="upload-img-labels ml-2" id="submit">Submit</button>
 
@@ -51,22 +50,22 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card mood-card">
-                    <img class="card-img-top" id="pic-1" src="https://picsum.photos/200"
-                        alt="Card image cap">
+                    <img class="card-img-top" id="pic-1"
+                        src="https://picsum.photos/200" alt="Card image cap">
                     <div class="mood-name-1">Mood1</div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card mood-card">
-                    <img class="card-img-top" id="pic-2"  src="https://picsum.photos/200"
-                        alt="Card image cap">
+                    <img class="card-img-top" id="pic-2"
+                        src="https://picsum.photos/200" alt="Card image cap">
                     <div class="mood-name-2">Mood2</div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="card mood-card">
-                    <img class="card-img-top"  id="pic-3" src="https://picsum.photos/200"
-                        alt="Card image cap">
+                    <img class="card-img-top" id="pic-3"
+                        src="https://picsum.photos/200" alt="Card image cap">
                     <div class="mood-name-3">Mood3</div>
                 </div>
             </div>
