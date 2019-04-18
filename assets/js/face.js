@@ -34,8 +34,7 @@ function processImage() {
       data: '{"url": ' + '"' + sourceImageUrl + '"}',
    })
       .done(function (data) {
-         // Show formatted JSON on webpage.
-         $("#responseTextArea").val(JSON.stringify(data, null, 2));
+
 
          var emotions = {
             anger: data[0].faceAttributes.emotion.anger,
