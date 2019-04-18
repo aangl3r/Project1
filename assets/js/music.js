@@ -2,7 +2,7 @@ var url = window.location.href;
 
 // var url = "https://aangl3r.github.io/Project1/inner.html/" +
 //     "#access_token=" +
-//     "BQCwoX9Qu_abfawYQ9g1yRe-pp1oqUsD_DGGDsCO1CLVaHn4RpveyJh4CLvjXN3iuq3c79O3Dv4cJsTfJo5wA7o_GpsdS1t4zmAxVfHuL4_iGW3HyG1GXUlYd4VBgqLN32s1Edyn3N6v7L3bQyNfVoCgW3-khTs" +
+//     "BQAdEIHH2v_rGEwCLHwamky1QEEL9VzqwrnxxLOYVWPayr8BrL1wwfZWN7J7igntCA6gDa3kLJi9QSODnpbNI_bSGp5QTQ76-PyB88ng7AxTRcdBE2p5kWJamOf_mNgVm1DHWNamh0HrSJYl1DjllH_OHP7V18M" +
 //     "&token_type=Bearer&expires_in=3600";
 
 console.log(url.split("access_token="));
@@ -89,13 +89,13 @@ function getPlaylist(mood, genres) {
             }
         });
 
-    }.then(function () {
+    }).then(function () {
 
         // Use the tracks we receive to populate chosen playlist
 
         // add playlist to firebase
 
-    }));
+    });
 
 
 }
