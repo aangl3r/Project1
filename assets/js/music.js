@@ -1,9 +1,9 @@
-// var url = window.location.href;
+var url = window.location.href;
 
-var url = "https://aangl3r.github.io/Project1/inner.html/" +
-    "#access_token=" +
-    "BQCwoX9Qu_abfawYQ9g1yRe-pp1oqUsD_DGGDsCO1CLVaHn4RpveyJh4CLvjXN3iuq3c79O3Dv4cJsTfJo5wA7o_GpsdS1t4zmAxVfHuL4_iGW3HyG1GXUlYd4VBgqLN32s1Edyn3N6v7L3bQyNfVoCgW3-khTs" +
-    "&token_type=Bearer&expires_in=3600";
+// var url = "https://aangl3r.github.io/Project1/inner.html/" +
+//     "#access_token=" +
+//     "BQCwoX9Qu_abfawYQ9g1yRe-pp1oqUsD_DGGDsCO1CLVaHn4RpveyJh4CLvjXN3iuq3c79O3Dv4cJsTfJo5wA7o_GpsdS1t4zmAxVfHuL4_iGW3HyG1GXUlYd4VBgqLN32s1Edyn3N6v7L3bQyNfVoCgW3-khTs" +
+//     "&token_type=Bearer&expires_in=3600";
 
 console.log(url.split("access_token="));
 url = url.split("access_token=");
