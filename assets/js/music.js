@@ -46,9 +46,10 @@ function getPlaylist(mood, genres) {
         if (genres.length === 0) {
             // if there hasn't already been an error (of this sort), add the error message to the #header div (jumbotron)
             if (!errExists) {
-                var errMsg = $("<div>");
+                var errMsg = $("<p>");
                 errMsg.
                     attr("id", "genre-error").
+                    attr("class", "lead text-white").
                     text("Please select at least one genre");
                 $("#header").append(errMsg);
                 errExists = true;
