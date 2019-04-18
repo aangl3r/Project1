@@ -3,7 +3,7 @@
 
 $('#submit').on('click', processImage);
 
-
+var happiness;
 
 function processImage() {
    // Replace <Subscription Key> with your valid subscription key.
@@ -55,11 +55,18 @@ function processImage() {
                topEmo = key;
             }
          })
-         console.log('Value, outside of loop: ' + parseInt(value * 10));
+         happiness = emotions.happiness;
+			console.log('***: processImage -> happiness', happiness);
          $('.mood-name-1').html(`${topEmo}: ${parseInt(value * 10)} out of 10`);
 
-         console.log(data
-         );
+         database.ref().push({
+            sourceImageUrl,
+            happiness,
+            topEmo,
+            value
+         });
+         $('#pic-1').attr('src', sourceImageUrl);
+         console.log(data);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
          // Display error message.
@@ -72,5 +79,3 @@ function processImage() {
          alert(errorString);
       });
 };
-database.ref('sourceImageUrl').push();
-   // $('#pic-1').attr('src', sourceImageUrl);
