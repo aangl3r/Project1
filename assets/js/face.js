@@ -3,8 +3,6 @@
 
 $('#submit').on('click', processImage);
 
-var happiness;
-
 function processImage() {
    // Replace <Subscription Key> with your valid subscription key.
    var subscriptionKey = "30e9de2d176e4777a961d0d067ec593e";
@@ -54,18 +52,17 @@ function processImage() {
                topEmo = key;
             }
          })
-         happiness = emotions.happiness;
-			console.log('***: processImage -> happiness', happiness);
+         var happiness = emotions.happiness;
+         console.log('***: processImage -> happiness', happiness);
          $('.mood-name-1').html(`${topEmo}: ${parseInt(value * 10)} out of 10`);
 
          database.ref().push({
             sourceImageUrl,
-            happiness,
-            topEmo,
-            value
+            happiness
          });
-         $('#pic-1').attr('src', sourceImageUrl);
-         console.log(data);
+         // $('#pic-1').attr('src', sourceImageUrl);
+
+         // console.log(data);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
          // Display error message.
@@ -78,3 +75,19 @@ function processImage() {
          alert(errorString);
       });
 };
+// The child_added listener for our database, to put the image and happiness factor
+// into the DOM
+database.ref().on("child_added", function (childSnapshot) {
+   var image = childSnapshot.val().sourceImageUrl;
+   var happiness = childSnapshot.val().happiness;
+
+   $('#pics-go-here').append(`
+   <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="card mood-card">
+         <img class="card-img-top" src="${image}" alt="Card image cap">
+         <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10</div>
+      </div>
+   </div>
+   `);
+
+})
