@@ -14,6 +14,8 @@ console.log("TCL: url", url);
 
 var token = url[0];
 
+var errExists = false;
+
 // Create function to populate playlist in DOM
 // tracks is an array of track ids per spotify api
 function populatePlaylist(tracks) {
@@ -97,6 +99,25 @@ function getPlaylist(moods, genres) {
         })
 
     ).then(function () {
+
+        // include error message if user passes in no genres
+        if (genres.length === 0) {
+            // if there hasn't already been an error (of this sort), add the error message to the #header div (jumbotron)
+            if (!errExists) {
+                var errMsg = $("<p>");
+                errMsg.
+                    attr("id", "genre-error").
+                    attr("class", "lead text-white").
+                    text("Please select at least one genre");
+                $("#header").append(errMsg);
+                errExists = true;
+            }
+            return;
+        }
+
+        // Otherwise, function will proceed as planned, and remove error message
+        $("#genre-error").remove();
+        errExists = false;
 
         // Set base query URL
         var queryURL = "https://api.spotify.com/v1/recommendations?limit=20&market=ES&seed_genres=";
