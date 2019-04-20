@@ -6,6 +6,7 @@ body {
 /*--------------------------  
     HEAD BANNER SECTION
 -------------------------- */
+
 #header {
     background-image: url(../images/concert.jpg);
     background-position: center;
@@ -13,26 +14,33 @@ body {
     border-radius: 0;
     min-height: 500px;
 }
+
 #header h1 {
     font-family: 'Teko', sans-serif;
     font-size: 4.5rem;
     text-shadow: 0 0 10px #000;
 }
+
 #header .lead {
     text-shadow: 0 0 10px #000;
 }
+
 /*----- Custom Img Uploads -----*/
+
 #file-input {
     height: 42px;
     padding: 0 5px;
     width: 100%;
 }
+
 .upload-custom-wrapper {
     width: 75%;
 }
+
 .custom-file {
     align-items: unset !important;
 }
+
 .upload-img-labels {
     background-color: #120950;
     border: none;
@@ -40,21 +48,26 @@ body {
     cursor: default;
     font-size: 1.25rem;
 }
+
 #submit {
     border-radius: 0 .25rem .25rem 0;
     padding: 0 20px;
 }
+
 #submit:hover {
     background-color: #1f1081;
     box-shadow: inset 0 0 5px 3px #171235;
 }
+
 #submit:active {
     background-color: #1f1081;
     box-shadow: inset 0 0 5px 3px #624fca;
 }
+
 /*--------------------------  
     LIBRARY of MOODS 
 -------------------------- */
+
 #pics-go-here {
     display: grid;
     grid-gap: 30px;
@@ -62,16 +75,20 @@ body {
     grid-template-rows: auto 1fr;
     grid-auto-flow: dense;
 }
+
 .mood-card {
     overflow: hidden;
     position: relative;
 }
+
 .mood-card img {
     height: 300px;
     width: auto;
     object-fit: cover;
 }
-.mood-name {
+
+.mood-name,
+.mood-level {
     background-color: #120950;
     color: #fff;
     font-size: 1.25rem;
@@ -80,9 +97,12 @@ body {
     opacity: .7;
     padding: 10px;
     position: absolute;
-        bottom: 15px;
+    bottom: 15px;
     width: 100%;
     text-align: center;
+}
+.mood-level {
+    bottom: 75px;
 }
 .spotify-logo {
     color: #84b82d;
@@ -92,17 +112,19 @@ body {
     margin-left: -80px;
     margin-top: 200px;
     position: absolute;
-        left: 50%;
-        top: 50%;
+    left: 50%;
+    top: 50%;
     transition: .3s ease-in-out;
 }
+
 .spotify-logo:hover {
     font-size: 10.5rem;
     left: 49%;
     top: 49%;
-    text-shadow: 3px 4px 2px rgba(0,0,0,0.5);
+    text-shadow: 3px 4px 2px rgba(0, 0, 0, 0.5);
     transition: .1s;
 }
+
 .spotify-logo:active {
     color: #6b9424;
     font-size: 9.5rem;
@@ -111,6 +133,7 @@ body {
     opacity: .8;
     text-shadow: none;
 }
+
 .shadow {
     background-color: #000;
     filter: opacity(0);
@@ -122,13 +145,15 @@ body {
 /*--------------------------  
     PLAYLIST POPUP 
 -------------------------- */
+
 #playlist-popup {
     position: fixed;
-        bottom: 0px;
-        right: 0;
+    bottom: 0px;
+    right: 0;
     width: 75%;
     z-index: 9999;
 }
+
 .playlist-tabs {
     background-color: #120950;
     border-radius: 5px 5px 0 0;
@@ -136,27 +161,31 @@ body {
     cursor: pointer;
     height: 40px;
     position: absolute;
-        bottom: 50px;
-        right: -20px;
+    bottom: 50px;
+    right: -20px;
     text-align: center;
     transform: rotate(-90deg);
     width: 80px;
     padding-top: 8px;
 }
+
 .playlist-tabs:hover {
     background-color: #1f1081;
     box-shadow: inset 0 0 5px 3px #171235;
 }
+
 .playlist-tabs:active {
     background-color: #1f1081;
     box-shadow: inset 0 0 5px 3px #624fca;
 }
+
 #playlist-popup table {
     border-radius: 15px 0 0 15px;
     position: absolute;
-        bottom: 0;
-        right: -100%;
+    bottom: 0;
+    right: -100%;
 }
+
 #playlist-popup table th {
     border-top: none;
     font-weight: 600;
@@ -165,6 +194,7 @@ body {
 /*--------------------------  
     MEDIA QUERIES
 -------------------------- */
+
 @media only screen and (max-width: 767px) {
     #pics-go-here {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -173,23 +203,23 @@ body {
     .mood-card img {
         max-height: 500px;
         height: 100%;
-}
-@media only screen and (max-width: 600px) {
-    #header h1 {
-        font-size: 3.25rem
     }
-    .upload-custom-wrapper {
-        width: 100%;
+    @media only screen and (max-width: 600px) {
+        #header h1 {
+            font-size: 3.25rem
+        }
+        .upload-custom-wrapper {
+            width: 100%;
+        }
+        #playlist-popup {
+            width: 100%;
+        }
+        #playlist-popup table {
+            border-radius: 0;
+        }
     }
-    #playlist-popup {
-        width: 100%;
+    @media only screen and (max-width: 400px) {
+        #playlist-popup table {
+            font-size: .8rem;
+        }
     }
-    #playlist-popup table {
-        border-radius: 0;
-    }
-}
-@media only screen and (max-width: 400px) {
-    #playlist-popup table {
-        font-size: .8rem;
-    }
-}

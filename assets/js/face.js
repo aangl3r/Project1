@@ -16,9 +16,10 @@ function processImage() {
       "returnFaceAttributes":
          "emotion"
    };
-   // Display the image.
+
+   // sourceImageUrl will hold the url for our pic to be analyzed
    var sourceImageUrl = $('#file-input').val();
-   // console.log('***: processImage -> sourceImageUrl', sourceImageUrl);
+
    // Perform the REST API call.
    $.ajax({
       url: uriBase + "?" + $.param(params),
@@ -32,8 +33,7 @@ function processImage() {
       data: '{"url": ' + '"' + sourceImageUrl + '"}',
    })
       .done(function (data) {
-
-
+         // emotions object to hold all relevant/irrelevant emotion info
          var emotions = {
             anger: data[0].faceAttributes.emotion.anger,
             contempt: data[0].faceAttributes.emotion.contempt,
@@ -53,16 +53,19 @@ function processImage() {
             }
          })
          var happiness = emotions.happiness;
+         var anger = emotions.anger;
+         var contempt = emotions.contempt;
+         var energy = anger + contempt;
+			console.log('***: processImage -> contempt', contempt);
+			console.log('***: processImage -> anger', anger);
          console.log('***: processImage -> happiness', happiness);
-         $('.mood-name-1').html(`${topEmo}: ${parseInt(value * 10)} out of 10`);
+
 
          database.ref().push({
             sourceImageUrl,
-            happiness
+            happiness,
+            energy
          });
-         // $('#pic-1').attr('src', sourceImageUrl);
-
-         // console.log(data);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
          // Display error message.
@@ -80,13 +83,16 @@ function processImage() {
 database.ref().on("child_added", function (childSnapshot) {
    var image = childSnapshot.val().sourceImageUrl;
    var happiness = childSnapshot.val().happiness;
+   var energy = childSnapshot.val().energy;
+
 
    $('#pics-go-here').prepend(`
       <div class="card mood-card">
          <img class="card-img-top" src="${image}" alt="Card image cap">
-         <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10</div>
+         <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10.</div>
+         <div class="mood-level">Energy: ${parseInt(energy * 10)} out of 10.</div>
          <div class="shadow"></div>
-         <i class="fab fa-spotify spotify-logo" data-value="${happiness}"></i>
+         <i class="fab fa-spotify spotify-logo" data-happiness="${happiness}" data-energy="${energy}"></i>
       </div>
    `);
 
