@@ -72,9 +72,9 @@ function populatePlaylist(tracks) {
 }
 
 // Create function to grab music based on face data
-// features: float of overall mood (from 0.0 - 1.0) where 1.0 is maximum happy
+// moods: array consisting of [happiness, energy]: both values from 0.0 to 1.0
 // genres: string array of genres the user chose
-function getPlaylist(mood, genres) {
+function getPlaylist(moods, genres) {
 
     // create variables to hold username & tracks
     var username;
@@ -128,10 +128,12 @@ function getPlaylist(mood, genres) {
             queryURL += genres[i];
         }
 
-        // add mood value passed in as target valence search query
-        queryURL += "&target_valence=" + mood;
+        // add mood values passed in as target valence and target enerfy search queries
+        queryURL += "&target_valence=" + moods[0] + "&target_energy=" + moods[1];
 
-        // ajax call to grab 20 songs. We will also add them to the DOM's playlist here
+        // ajax call to grab 20 songs.
+        // We will also call the function to add them to the DOM's playlist
+        // and return the track ids so that they can be added to firebase database
         $.ajax({
             url: queryURL,
             headers: {
