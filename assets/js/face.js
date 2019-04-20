@@ -82,12 +82,12 @@ database.ref().on("child_added", function (childSnapshot) {
    var happiness = childSnapshot.val().happiness;
 
    $('#pics-go-here').append(`
-   <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="card mood-card">
          <img class="card-img-top" src="${image}" alt="Card image cap">
          <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10</div>
+         <div class="shadow"></div>
+         <i class="fab fa-spotify spotify-logo" data-value="${happiness}"></i>
       </div>
-   </div>
    `);
 
 })
