@@ -58,9 +58,10 @@ function processImage() {
          var anger = emotions.anger;
          var contempt = emotions.contempt;
          var energy = anger + contempt;
-         console.log('***: processImage -> contempt', contempt);
-         console.log('***: processImage -> anger', anger);
-         console.log('***: processImage -> happiness', happiness);
+
+         if (energy > 1) {
+            energy = 1;
+         }
 
          var genres = [];
          // Find selected genres
@@ -107,6 +108,7 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
+      $("#file-input").val('');
 };
 // The child_added listener for our database, to put the image and happiness factor
 // into the DOM
