@@ -81,7 +81,7 @@ function expandPlaylist() {
         </div>
     `);
 
-    $('#playlist-popup').find('table')
+    $('#playlist-popup').find('#table-wrapper')
         .css('right', '0px');
 
 }
@@ -89,7 +89,7 @@ function expandPlaylist() {
 function collapsePlaylist() {
     $(this).remove();
 
-    $('#playlist-popup').find('table')
+    $('#playlist-popup').find('#table-wrapper')
         .css('right', '-100%');
 }
 

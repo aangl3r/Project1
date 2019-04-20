@@ -46,6 +46,7 @@
         <!-- Display genre checklist -->
         <div class="row">
             <div class="col-12 mx-auto">
+                <h3>Select Genre(s) of your Playlist</h3>
                 <div class="mx-auto mb-5" id="genre-container">
                 </div>
             </div>
@@ -61,53 +62,57 @@
         <div id="playlist-popup-expand" class="playlist-tabs">
             <i class="far fa-arrow-alt-circle-up"></i>
         </div>
-        <table class="table table-dark">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Artist</th>
-                    <th scope="col">Duration</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div id="table-wrapper">
+            <div id="table-scroll">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                <!-- Playlist to be generated here -->
+                        <!-- Playlist to be generated here -->
 
-                <!-- Delete these dummy tr when music.js can generate playlist -->
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Song1</td>
-                    <td>Artist1</td>
-                    <td>1:11</td>
-                </tr>
-                <tr>
-                    <td scope="row">2</td>
-                    <td>Song2</td>
-                    <td>Artist2</td>
-                    <td>2:22</td>
-                </tr>
-                <tr>
-                    <td scope="row">3</td>
-                    <td>Song3</td>
-                    <td>Artist3</td>
-                    <td>3:33</td>
-                </tr>
-                <tr>
-                    <td scope="row">4</td>
-                    <td>Song4</td>
-                    <td>Artist4</td>
-                    <td>4:44</td>
-                </tr>
-                <tr>
-                    <td scope="row">5</td>
-                    <td>Song5</td>
-                    <td>Artist5</td>
-                    <td>5:55</td>
-                </tr>
+                        <!-- Delete these dummy tr when music.js can generate playlist -->
+                        <tr>
+                            <td scope="row">1</td>
+                            <td>Song1</td>
+                            <td>Artist1</td>
+                            <td>1:11</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">2</td>
+                            <td>Song2</td>
+                            <td>Artist2</td>
+                            <td>2:22</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">3</td>
+                            <td>Song3</td>
+                            <td>Artist3</td>
+                            <td>3:33</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">4</td>
+                            <td>Song4</td>
+                            <td>Artist4</td>
+                            <td>4:44</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">5</td>
+                            <td>Song5</td>
+                            <td>Artist5</td>
+                            <td>5:55</td>
+                        </tr>
 
-            </tbody>
-        </table>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 
