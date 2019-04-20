@@ -1,5 +1,7 @@
 // <!-- Much of this program was taken from https://docs.microsoft.com/en-us/azure/cognitive-services/face/quickstarts/javascript -->
 
+// variable to keep track of genre input error message
+var errExists = false;
 
 $('#submit').on('click', processImage);
 
@@ -56,15 +58,43 @@ function processImage() {
          var anger = emotions.anger;
          var contempt = emotions.contempt;
          var energy = anger + contempt;
-			console.log('***: processImage -> contempt', contempt);
-			console.log('***: processImage -> anger', anger);
+         console.log('***: processImage -> contempt', contempt);
+         console.log('***: processImage -> anger', anger);
          console.log('***: processImage -> happiness', happiness);
 
+         var genres = [];
+         // Find selected genres
+         $.each($(".form-check-input:checked"), function () {
+            console.log($(this).attr("id"));
+            genres.push($(this).attr("id"));
+         })
+
+         // display error message if user passes in no genres
+         if (genres.length === 0) {
+            // if there hasn't already been an error (of this sort), add the error message to the #header div (jumbotron)
+            if (!errExists) {
+               var errMsg = $("<p>");
+               errMsg.
+                  attr("id", "genre-error").
+                  attr("class", "lead text-white").
+                  text("Please select at least one genre");
+               $("#header").append(errMsg);
+               errExists = true;
+            }
+            return;
+         }
+
+         // Otherwise, function will proceed as planned, and remove error message
+         $("#genre-error").remove();
+         errExists = false;
+
+         var tracks = getPlaylist([happiness, energy], genres);
 
          database.ref().push({
             sourceImageUrl,
             happiness,
-            energy
+            energy,
+            tracks
          });
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
