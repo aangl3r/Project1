@@ -65,13 +65,22 @@ body {
 }
 
 /*--------------------------  
+    GENRE CHECKLIST 
+-------------------------- */
+#genre-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    grid-template-rows: auto 1fr;
+}
+
+/*--------------------------  
     LIBRARY of MOODS 
 -------------------------- */
 
 #pics-go-here {
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
     grid-template-rows: auto 1fr;
     grid-auto-flow: dense;
 }
@@ -82,12 +91,17 @@ body {
 }
 
 .mood-card img {
-    height: 300px;
+    height: 340px;
     width: auto;
     object-fit: cover;
 }
 
-#remove {
+.remove {
+    border-radius: 50%;
+    position: absolute;
+        right: 5px;
+        top: 5px;
+    width: 38px;
     z-index: 9999;
 }
 
@@ -105,9 +119,12 @@ body {
     width: 100%;
     text-align: center;
 }
+
 .mood-level {
+    background-color: #542054;
     bottom: 75px;
 }
+
 .spotify-logo {
     color: #84b82d;
     cursor: pointer;
@@ -209,22 +226,24 @@ body {
         height: 100%;
     }
 }
-    @media only screen and (max-width: 600px) {
-        #header h1 {
-            font-size: 3.25rem
-        }
-        .upload-custom-wrapper {
-            width: 100%;
-        }
-        #playlist-popup {
-            width: 100%;
-        }
-        #playlist-popup table {
-            border-radius: 0;
-        }
+
+@media only screen and (max-width: 600px) {
+    #header h1 {
+        font-size: 3.25rem
     }
-    @media only screen and (max-width: 400px) {
-        #playlist-popup table {
-            font-size: .8rem;
-        }
+    .upload-custom-wrapper {
+        width: 100%;
     }
+    #playlist-popup {
+        width: 100%;
+    }
+    #playlist-popup table {
+        border-radius: 0;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #playlist-popup table {
+        font-size: .8rem;
+    }
+}
