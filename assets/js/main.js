@@ -12,6 +12,39 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
+var availableGenres = [
+    "acoustic",
+    "alternative",
+    "blues",
+    "classical",
+    "country",
+    "dubstep",
+    "edm",
+    "emo",
+    "folk",
+    "gospel",
+    "goth",
+    "grunge",
+    "hardcore",
+    "hip-hop",
+    "house",
+    "indie",
+    "jazz",
+    "k-pop",
+    "kids",
+    "metal",
+    "piano",
+    "pop",
+    "punk",
+    "r-n-b",
+    "reggae",
+    "rock",
+    "soundtracks",
+    "study",
+]
+
+generateGenre();
+
 /*-------------------------- 
   Listeners
 --------------------------*/
@@ -29,6 +62,18 @@ $('#pics-go-here').on('mouseover', '.mood-card', showSpotify)
 /*-------------------------- 
     Functions
 --------------------------*/
+function generateGenre() {
+    var genreOrdered = availableGenres.sort();
+    for (var i = 0; i < availableGenres.length; i++) {
+        $('#genre-container').append(`
+            <div class="form-check genre-wrapper">
+                <input class="form-check-input" type="checkbox" id="${genreOrdered[i]}" value="option1">
+                <label class="form-check-label" for="${genreOrdered[i]}">${genreOrdered[i]}</label>
+            </div>
+        `);
+    }
+}
+
 function expandPlaylist() {
     $('#playlist-popup').append(`
         <div id="playlist-popup-collapse" class="playlist-tabs">
