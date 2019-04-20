@@ -81,6 +81,7 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
+      $("#file-input").val('');
 };
 // The child_added listener for our database, to put the image and happiness factor
 // into the DOM
