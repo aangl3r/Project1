@@ -5,7 +5,7 @@ $('#submit').on('click', processImage);
 
 function processImage() {
    // Replace <Subscription Key> with your valid subscription key.
-   var subscriptionKey = "30e9de2d176e4777a961d0d067ec593e";
+   var subscriptionKey = "a9fb99f9425242aaaf9edb0b064beb90";
    var uriBase =
       "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
@@ -81,7 +81,7 @@ database.ref().on("child_added", function (childSnapshot) {
    var image = childSnapshot.val().sourceImageUrl;
    var happiness = childSnapshot.val().happiness;
 
-   $('#pics-go-here').append(`
+   $('#pics-go-here').prepend(`
       <div class="card mood-card">
          <img class="card-img-top" src="${image}" alt="Card image cap">
          <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10</div>
