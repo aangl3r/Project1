@@ -56,6 +56,10 @@ function processImage() {
          var anger = emotions.anger;
          var contempt = emotions.contempt;
          var energy = anger + contempt;
+
+         if (energy > 1) {
+            energy = 1;
+         }
 			console.log('***: processImage -> contempt', contempt);
 			console.log('***: processImage -> anger', anger);
          console.log('***: processImage -> happiness', happiness);
