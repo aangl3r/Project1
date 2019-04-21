@@ -116,7 +116,17 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
+   
+   // clear URL input
    $("#file-input").val('');
+
+   // scroll to image section
+   $('html, body').animate({
+      scrollTop: ($('#pics-go-here').offset().top)
+   }, 500);
+
+   // show playlist
+   expandPlaylist();
 };
 // The child_added listener for our database, to put the image and happiness factor
 // into the DOM
