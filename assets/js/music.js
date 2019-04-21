@@ -1,11 +1,11 @@
-// var url = window.location.href;
+var url = window.location.href;
 
 // commented code below used for debugging
 
-var url = "https://aangl3r.github.io/Project1/inner.html/" +
-    "#access_token=" +
-    "BQCpwSUOMmD8Nrj-3wCro8oyiLgTJmGnxqXxkrIdbByyPrf3M14q0H-k6mEf9xLyBd5SQ3afEgOaSctYEuGnemuecfFOHpUxzUx8YyaleHOlIP91u-QUt9TGHmU9NbvTgHuemdu92QEDlHBlDzETWUbhUhIFWaaGQKfGInpR46yPmdn0cLM9XHvI4wpk" +
-    "&token_type=Bearer&expires_in=3600";
+// var url = "https://aangl3r.github.io/Project1/inner.html/" +
+//     "#access_token=" +
+//     "BQCpwSUOMmD8Nrj-3wCro8oyiLgTJmGnxqXxkrIdbByyPrf3M14q0H-k6mEf9xLyBd5SQ3afEgOaSctYEuGnemuecfFOHpUxzUx8YyaleHOlIP91u-QUt9TGHmU9NbvTgHuemdu92QEDlHBlDzETWUbhUhIFWaaGQKfGInpR46yPmdn0cLM9XHvI4wpk" +
+//     "&token_type=Bearer&expires_in=3600";
 
 console.log(url.split("access_token="));
 url = url.split("access_token=");
