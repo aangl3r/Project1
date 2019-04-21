@@ -100,27 +100,27 @@ function showBtns() {
         .css({
             'margin-top':'-76px',
             'filter':'opacity(1)'
-    });
+        });
 
     $(this).find('.remove')
         .css({
-        'margin-top': '0px',
-        'filter':'opacity(.8)'
-    });
+            'margin-top': '0px',
+            'filter':'opacity(.8)'
+        });
 }
     
     function hideBtns() {
         $(this).find('.shadow')
-        .css('filter','opacity(0)');
+            .css('filter','opacity(0)');
         $(this).find('.spotify-logo')
-        .css({
-            'margin-top':'200px',
-            'filter':'opacity(0)'
-        });
+            .css({
+                'margin-top':'200px',
+                'filter':'opacity(0)'
+            });
 
         $(this).find('.remove')
             .css({
                 'margin-top': '-50px',
                 'filter':'opacity(0)'
-        });
+            });
 }
