@@ -4,7 +4,7 @@ var url = window.location.href;
 
 // var url = "https://aangl3r.github.io/Project1/inner.html/" +
 //     "#access_token=" +
-//     "BQDXKGv40PNBY-67o5GckU9bCX1YLH02AvA7WLlTdtMRypfH8gAnQ-bxkHXtJuHG9wfNocYD_332NZfd0ed-PjKbeg34BumSrTk3UifYZV0cWT0VADA2B0Pgirg9QvucvQdURMH5s2Qflntc0kBho6rhaQBF3vMhnw5-Tohad0MGQFzfvApOSFmq2SH5" +
+//     "BQCpwSUOMmD8Nrj-3wCro8oyiLgTJmGnxqXxkrIdbByyPrf3M14q0H-k6mEf9xLyBd5SQ3afEgOaSctYEuGnemuecfFOHpUxzUx8YyaleHOlIP91u-QUt9TGHmU9NbvTgHuemdu92QEDlHBlDzETWUbhUhIFWaaGQKfGInpR46yPmdn0cLM9XHvI4wpk" +
 //     "&token_type=Bearer&expires_in=3600";
 
 console.log(url.split("access_token="));
@@ -55,7 +55,7 @@ function populatePlaylist(tracks) {
                 newSong.append(
                     $(
                         "<td scope='row'>" + playlistIndex + "</td>" +
-                        "<td>" + songName + "</td>" +
+                        '<td><i class="far fa-play-circle" data-song-name="' + songName + '"></i> ' + songName + '</td>' +
                         "<td>" + songArtist + "</td>" +
                         "<td>" + songDuration + "</td>"
                     )
@@ -147,3 +147,11 @@ function getPlaylist(moods, genres) {
 
 
 }
+
+// Click an image's spotify logo to load its previously generated playlist
+$(document).on("click", ".spotify-logo", function() {
+    keyref = $(this).parent().children()[0].getAttribute("data-key");
+    database.ref(keyref).once('value').then(function(snap) {
+        populatePlaylist(snap.val().tracks);
+    });
+})
