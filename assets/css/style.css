@@ -186,7 +186,7 @@ body {
     position: fixed;
     bottom: 0px;
     right: 0;
-    width: 75%;
+    width: 100%;
     z-index: 9999;
 }
 
@@ -217,18 +217,18 @@ body {
 }
 
 #playlist-popup #table-wrapper {
-    border-radius: 15px 0 0 15px;
     position: absolute;
     bottom: 10px;
     right: -100%;
-    width: 750px;
+    width: 75%;
 }
 
 #table-scroll {
-    /* position: relative; */
+    border-radius: 15px 0 0 15px;
+    margin-top: 20px;
     max-height: 500px;
     overflow: auto;
-    margin-top: 20px;
+    position: relative;
 }
 
 #playlist-popup table th {
