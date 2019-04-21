@@ -10,10 +10,10 @@ var url = window.location.href;
 console.log(url.split("access_token="));
 url = url.split("access_token=");
 url = url[1].split("&");
+
 console.log("TCL: url", url);
 
 var token = url[0];
-
 // Create function to populate playlist in DOM
 // tracks is an array of track ids per spotify api
 function populatePlaylist(tracks) {
@@ -64,9 +64,17 @@ function populatePlaylist(tracks) {
                 // append the row to the table
                 $("tbody").append(newSong);
                 playlistIndex++;
+                tracks_ready = true;
+
             }
         });
     }
+    database.ref().push({
+        sourceImageUrl,
+        happiness,
+        energy,
+        tracks
+    });
 }
 
 // Create function to grab music based on face data
@@ -85,7 +93,7 @@ function getPlaylist(moods, genres) {
             url: "https://api.spotify.com/v1/me",
             method: "GET",
             headers: {
-                "Authorization": "Bearer " + token
+                'Authorization': 'Bearer ' + token
             },
             error: function (err) {
                 console.log("you done messed up");
@@ -131,6 +139,7 @@ function getPlaylist(moods, genres) {
                 populatePlaylist(tracks);
 
                 return tracks;
+
             }
         });
 

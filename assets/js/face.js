@@ -2,6 +2,10 @@
 
 // create var to keep track of genre error message
 var errExists = false;
+var sourceImageUrl;
+var happiness;
+var energy;
+var tracks;
 
 $('#submit').on('click', processImage);
 
@@ -20,7 +24,7 @@ function processImage() {
    };
 
    // sourceImageUrl will hold the url for our pic to be analyzed
-   var sourceImageUrl = $('#file-input').val();
+   sourceImageUrl = $('#file-input').val();
 
    // Perform the REST API call.
    $.ajax({
@@ -54,16 +58,19 @@ function processImage() {
                topEmo = key;
             }
          })
-         var happiness = emotions.happiness;
+         happiness = emotions.happiness;
          var anger = emotions.anger;
          var contempt = emotions.contempt;
-         var energy = anger + contempt;
+         var surprise = emotions.surprise;
+         var fear = emotions.fear;
+         var disgust = emotions.disgust;
+         energy = anger + contempt + surprise + fear + disgust;
 
          if (energy > 1) {
             energy = 1;
          }
-			
-	var genres = [];
+
+         var genres = [];
          // Find selected genres
          $.each($(".form-check-input:checked"), function () {
             console.log($(this).attr("id"));
@@ -89,14 +96,15 @@ function processImage() {
          $("#genre-error").remove();
          errExists = false;
 
-         var tracks = getPlaylist([happiness, energy], genres);
+         tracks = getPlaylist([happiness, energy], genres);
 
-         database.ref().push({
-            sourceImageUrl,
-            happiness,
-            energy,
-	    tracks
-         });
+
+         // database.ref().push({
+         //    sourceImageUrl,
+         //    happiness,
+         //    energy,
+         //    tracks
+         // });
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
          // Display error message.
@@ -108,7 +116,7 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
-      $("#file-input").val('');
+   $("#file-input").val('');
 };
 // The child_added listener for our database, to put the image and happiness factor
 // into the DOM
