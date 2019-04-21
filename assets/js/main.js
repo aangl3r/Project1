@@ -55,8 +55,8 @@ $('#playlist-popup-expand').on('click', expandPlaylist);
 $(document).on('click', '#playlist-popup-collapse', collapsePlaylist);
 
 // to show spotify logo from library images
-$('#pics-go-here').on('mouseover', '.mood-card', showSpotify)
-    .on('mouseleave', '.mood-card', hideSpotify);
+$('#pics-go-here').on('mouseover', '.mood-card', showBtns)
+    .on('mouseleave', '.mood-card', hideBtns);
 
 
 /*-------------------------- 
@@ -93,22 +93,34 @@ function collapsePlaylist() {
         .css('right', '-100%');
 }
 
-function showSpotify() {
+function showBtns() {
     $(this).find('.shadow')
         .css('filter','opacity(0.5)');
     $(this).find('.spotify-logo')
         .css({
             'margin-top':'-76px',
             'filter':'opacity(1)'
-        });
-}
+    });
 
-function hideSpotify() {
-    $(this).find('.shadow')
+    $(this).find('.remove')
+        .css({
+        'margin-top': '0px',
+        'filter':'opacity(.8)'
+    });
+}
+    
+    function hideBtns() {
+        $(this).find('.shadow')
         .css('filter','opacity(0)');
-    $(this).find('.spotify-logo')
+        $(this).find('.spotify-logo')
         .css({
             'margin-top':'200px',
             'filter':'opacity(0)'
+        });
+
+        $(this).find('.remove')
+            .css({
+                'margin-top': '-50px',
+                'filter':'opacity(0)'
         });
 }
