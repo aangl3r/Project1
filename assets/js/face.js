@@ -63,7 +63,8 @@ function processImage() {
          var contempt = emotions.contempt;
          var surprise = emotions.surprise;
          var fear = emotions.fear;
-         energy = anger + contempt + surprise + fear;
+         var disgust = emotions.disgust;
+         energy = anger + contempt + surprise + fear + disgust;
 
          if (energy > 1) {
             energy = 1;
