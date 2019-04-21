@@ -116,7 +116,17 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
+   
+   // clear URL input
    $("#file-input").val('');
+
+   // scroll to image section
+   $('html, body').animate({
+      scrollTop: ($('#pics-go-here').offset().top)
+   }, 500);
+
+   // show playlist
+   expandPlaylist();
 };
 // The child_added listener for our database, to put the image and happiness factor
 // into the DOM
@@ -129,7 +139,7 @@ database.ref().on("child_added", function (childSnapshot) {
 
    $('#pics-go-here').prepend(`
       <div class="card mood-card">
-      <button class="btn btn-danger remove" data-key=${key}>X</button>
+      <div class="btn btn-danger remove" data-key=${key}>X</div>
          <img class="card-img-top" src="${image}" alt="Card image cap">
          <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10.</div>
          <div class="mood-level">Energy: ${parseInt(energy * 10)} out of 10.</div>
@@ -143,5 +153,7 @@ database.ref().on("child_added", function (childSnapshot) {
 $(document).on("click", ".remove", function () {
    keyref = $(this).attr("data-key");
    database.ref().child(keyref).remove();
-   window.location.reload();
+   // window.location.reload();
+
+   $(this).parent().remove();
 });
