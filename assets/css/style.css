@@ -196,13 +196,14 @@ body {
     color: #fff;
     cursor: pointer;
     height: 40px;
+    padding-top: 8px;
     position: absolute;
     bottom: 50px;
     right: -20px;
     text-align: center;
     transform: rotate(-90deg);
     width: 80px;
-    padding-top: 8px;
+    z-index: 10;
 }
 
 .playlist-tabs:hover {
@@ -224,7 +225,7 @@ body {
 }
 
 #table-scroll {
-    position: relative;
+    /* position: relative; */
     max-height: 500px;
     overflow: auto;
     margin-top: 20px;
