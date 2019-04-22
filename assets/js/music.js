@@ -55,7 +55,7 @@ function populatePlaylist(tracks) {
                 newSong.append(
                     $(
                         "<td scope='row'>" + playlistIndex + "</td>" +
-                        '<td><i class="far fa-play-circle d-none" data-song-name="' + songName + '"></i>' + songName + '</td>' +
+                        '<td><i class="far fa-play-circle" data-song-name="' + songName + '"></i>' + songName + '</td>' +
                         "<td>" + songArtist + "</td>" +
                         "<td>" + songDuration + "</td>"
                     )

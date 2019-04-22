@@ -67,6 +67,7 @@ body {
 /*--------------------------
     GENRE CHECKLIST
 -------------------------- */
+
 #genre-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -96,8 +97,7 @@ body {
     object-fit: cover;
 }
 
-.mood-name,
-.mood-level {
+.mood-name, .mood-level {
     background-color: #120950;
     color: #fff;
     font-size: 1.25rem;
@@ -238,10 +238,14 @@ body {
     top: -20px;
 }
 
-.fa-play-circle,
-.fa-pause-circle {
+.fa-play-circle, .fa-pause-circle {
     cursor: pointer;
-    margin-left: -20.35px;
+    margin-left: -20px;
+    margin-right: 4px
+}
+
+.fa-play-circle {
+    display: none;
 }
 
 /*--------------------------
