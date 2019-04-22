@@ -273,7 +273,7 @@ body {
     background: #ccc;
 }
 #table-scroll::-webkit-scrollbar-thumb {
-    background: #343a40;
+    background: #1a1e22;
     border: 1px solid #ccc;
 }
 
