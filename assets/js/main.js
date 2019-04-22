@@ -9,8 +9,9 @@ var config = {
     messagingSenderId: "717231325761"
 };
 firebase.initializeApp(config);
-
 var database = firebase.database();
+
+var isPlaying = false;
 
 var availableGenres = [
     "acoustic",
@@ -45,7 +46,7 @@ var availableGenres = [
 
 generateGenre();
 
-/*-------------------------- 
+/*--------------------------
   Listeners
 --------------------------*/
 // to expand playlist via button
@@ -54,12 +55,21 @@ $('#playlist-popup-expand').on('click', expandPlaylist);
 // to collapse playlist via button
 $(document).on('click', '#playlist-popup-collapse', collapsePlaylist);
 
-// to show spotify logo from library images
+// toggle spotify logo from library images
 $('#pics-go-here').on('mouseover', '.mood-card', showBtns)
     .on('mouseleave', '.mood-card', hideBtns);
 
+// toggle play icon on playlist
+$('tbody').on('mouseover', 'tr', showPlayIcon)
+    .on('mouseleave', 'tr', hidePlayIcon);
 
-/*-------------------------- 
+// to switch play icon to pause icon
+$('tbody').on('click', '.fa-play-circle', swapToPauseIcon);
+
+// to switch pause icon to play icon
+$('tbody').on('click', '.fa-pause-circle', swapToPlayIcon);
+
+/*--------------------------
     Functions
 --------------------------*/
 function generateGenre() {
@@ -95,32 +105,60 @@ function collapsePlaylist() {
 
 function showBtns() {
     $(this).find('.shadow')
-        .css('filter','opacity(0.5)');
+        .css('filter', 'opacity(0.5)');
     $(this).find('.spotify-logo')
         .css({
-            'margin-top':'-76px',
-            'filter':'opacity(1)'
+            'margin-top': '-76px',
+            'filter': 'opacity(1)'
         });
 
     $(this).find('.remove')
         .css({
             'margin-top': '0px',
-            'filter':'opacity(.8)'
+            'filter': 'opacity(.8)'
         });
 }
-    
-    function hideBtns() {
-        $(this).find('.shadow')
-            .css('filter','opacity(0)');
-        $(this).find('.spotify-logo')
-            .css({
-                'margin-top':'200px',
-                'filter':'opacity(0)'
-            });
 
-        $(this).find('.remove')
-            .css({
-                'margin-top': '-50px',
-                'filter':'opacity(0)'
-            });
+function hideBtns() {
+    $(this).find('.shadow')
+        .css('filter', 'opacity(0)');
+    $(this).find('.spotify-logo')
+        .css({
+            'margin-top': '200px',
+            'filter': 'opacity(0)'
+        });
+
+    $(this).find('.remove')
+        .css({
+            'margin-top': '-50px',
+            'filter': 'opacity(0)'
+        });
+}
+
+function showPlayIcon() {
+    $(this).css('background-color', '#542054');
+    $(this).find('.fa-play-circle')
+        .css('display', 'inline-block');
+}
+
+function hidePlayIcon() {
+    $(this).css('background-color', 'transparent');
+    $(this).find('.fa-play-circle')
+        .css('display', 'none');
+}
+
+function swapToPauseIcon() {
+    if (!isPlaying){
+        $(this)
+            .removeClass('fa-play-circle')
+            .addClass('fa-pause-circle');
+    }
+    isPlaying = true;
+}
+
+function swapToPlayIcon() {
+    $(this)
+        .removeClass('fa-pause-circle')
+        .addClass('fa-play-circle');
+    isPlaying = false;
 }
