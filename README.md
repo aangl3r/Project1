@@ -2,4 +2,4 @@
 
 https://aangl3r.github.io/Project1
 
-![img](./assets/images/ss.png)
+![img](./assets/images/team1.png)
