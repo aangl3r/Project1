@@ -248,6 +248,23 @@ body {
     display: none;
 }
 
+#table-scroll::-webkit-scrollbar {
+    width: 2rem;
+}
+#table-scroll::-webkit-scrollbar-button {
+    background: #343a40;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#table-scroll::-webkit-scrollbar-track-piece {
+    background: #ccc;
+}
+#table-scroll::-webkit-scrollbar-thumb {
+    background: #343a40;
+    border: 1px solid #ccc;
+}
+
+
 /*--------------------------
     MEDIA QUERIES
 -------------------------- */
