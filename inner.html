@@ -19,10 +19,17 @@
 <body>
     <div class="jumbotron text-center" id="header">
         <h1 class="text-white">Generate Your Playlist With a Selfie!</h1>
-        <p class="lead text-white">Simply pick from the library below or upload
-            your own selfie to get started</p>
+        <p class="lead text-white">Simply pick from the library below or link a selfie to get started.</p>
 
         <hr class="my-4">
+        <!-- Display genre checklist -->
+        <div class="row">
+            <div class="col-12 mx-auto text-white">
+                <h2>Select Genre(s) of your Playlist</h2>
+                <div class="mx-5 mb-5 text-left" id="genre-container">
+                </div>
+            </div>
+        </div>
         <div class="input-group mx-auto mb-3 upload-custom-wrapper">
             <div class="input-group-prepend">
                 <span class="input-group-text upload-img-labels">Paste link
@@ -38,26 +45,18 @@
             <button class="upload-img-labels ml-2" id="submit">Submit</button>
 
             <!-- Button to take a picture -->
-            <div id="btn-take-selfie"></div>
+            <!-- <div id="btn-take-selfie"></div> -->
         </div>
     </div>
+
     <div class="container my-5">
-
-        <!-- Display genre checklist -->
-        <div class="row">
-            <div class="col-12 mx-auto">
-                <h3>Select Genre(s) of your Playlist</h3>
-                <div class="mx-auto mb-5" id="genre-container">
-                </div>
-            </div>
-        </div>
-
         <!-- New uploads get added to this library -->
         <div class="row" id="pics-go-here">
 
         </div> <!-- End Library Row -->
 
     </div>
+
     <div id="playlist-popup">
         <div id="playlist-popup-expand" class="playlist-tabs">
             <i class="far fa-arrow-alt-circle-up"></i>
