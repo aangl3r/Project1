@@ -116,7 +116,7 @@ function processImage() {
                jQuery.parseJSON(jqXHR.responseText).error.message;
          alert(errorString);
       });
-   
+
    // clear URL input
    $("#file-input").val('');
 
@@ -150,10 +150,10 @@ database.ref().on("child_added", function (childSnapshot) {
 
 })
 
+// Remove data from firebase, and card from the DOM
 $(document).on("click", ".remove", function () {
    keyref = $(this).attr("data-key");
    database.ref().child(keyref).remove();
-   // window.location.reload();
 
    $(this).parent().remove();
 });
