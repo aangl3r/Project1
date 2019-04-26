@@ -141,8 +141,8 @@ database.ref().on("child_added", function (childSnapshot) {
       <div class="card mood-card">
       <div class="btn btn-danger remove" data-key=${key}>X</div>
          <img class="card-img-top" src="${image}" alt="Card image cap">
+         <div class="mood-level">Intensity: ${parseInt(energy * 10)} out of 10.</div>
          <div class="mood-name">Happiness: ${parseInt(happiness * 10)} out of 10.</div>
-         <div class="mood-level">Energy: ${parseInt(energy * 10)} out of 10.</div>
          <div class="shadow"></div>
          <i class="fab fa-spotify spotify-logo" data-happiness="${happiness}" data-energy="${energy}"></i>
       </div>

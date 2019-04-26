@@ -28,8 +28,7 @@ function populatePlaylist(tracks) {
             url: "https://api.spotify.com/v1/tracks/" + tracks[i].id,
             method: "GET",
             headers: {
-                "Authorization": "Bearer " + token
-            },
+                "Authorization": "Bearer " + "BQCNrEdgQzo6FJyGdSjFnMgyw7DZcMT4EicbxgLUgBNOyEBz3J0DaarR7deJQhkqjm0E1fj28_Qz1dbniv2pjwa9MCBDKhR6kinDvxn1KylyE8EI0vsyaxuSuMVRUQqLs-hLj48FSLOwCKtqHWJLyzbydwz22kMBl-MajSTjlwHcT7g4SUzdw7jcDi7qLcTN-ufKOdjE6YvtQuh7o1foHmlnt9QrwipzfhKI11R6xmVZ_T7D_ntASXapYw"            },
             success: function (data) {
 
                 // create table row to hold data
@@ -93,7 +92,7 @@ function getPlaylist(moods, genres) {
             url: "https://api.spotify.com/v1/me",
             method: "GET",
             headers: {
-                'Authorization': 'Bearer ' + token
+                'Authorization': 'Bearer ' + "BQCNrEdgQzo6FJyGdSjFnMgyw7DZcMT4EicbxgLUgBNOyEBz3J0DaarR7deJQhkqjm0E1fj28_Qz1dbniv2pjwa9MCBDKhR6kinDvxn1KylyE8EI0vsyaxuSuMVRUQqLs-hLj48FSLOwCKtqHWJLyzbydwz22kMBl-MajSTjlwHcT7g4SUzdw7jcDi7qLcTN-ufKOdjE6YvtQuh7o1foHmlnt9QrwipzfhKI11R6xmVZ_T7D_ntASXapYw"
             },
             error: function (err) {
                 console.log("you done messed up");
@@ -124,7 +123,7 @@ function getPlaylist(moods, genres) {
         $.ajax({
             url: queryURL,
             headers: {
-                "Authorization": "Bearer " + token
+                "Authorization": "Bearer " + "BQCNrEdgQzo6FJyGdSjFnMgyw7DZcMT4EicbxgLUgBNOyEBz3J0DaarR7deJQhkqjm0E1fj28_Qz1dbniv2pjwa9MCBDKhR6kinDvxn1KylyE8EI0vsyaxuSuMVRUQqLs-hLj48FSLOwCKtqHWJLyzbydwz22kMBl-MajSTjlwHcT7g4SUzdw7jcDi7qLcTN-ufKOdjE6YvtQuh7o1foHmlnt9QrwipzfhKI11R6xmVZ_T7D_ntASXapYw"
             },
             error: function (err) {
                 console.log("you done messed up");
