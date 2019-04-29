@@ -11,7 +11,7 @@ $('#submit').on('click', processImage);
 
 function processImage() {
    // Replace <Subscription Key> with your valid subscription key.
-   var subscriptionKey = "a9fb99f9425242aaaf9edb0b064beb90";
+   var subscriptionKey = "8a0a1ea09feb4d48bc216e946b017a26";
    var uriBase =
       "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 
